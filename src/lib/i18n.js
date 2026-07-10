@@ -136,7 +136,7 @@ const dict = {
     },
     vcard: {
       firstLabel: '이름',
-      firstPlaceholder: '홍길동',
+      firstPlaceholder: '길동',
       lastLabel: '성',
       lastPlaceholder: '홍',
       phoneLabel: '전화번호',
