@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <style>
+      html[data-theme='dark'] {
+        background: #0f0f10;
+        color-scheme: dark;
+      }
+
+      html[data-theme='light'] {
+        background: #fafafa;
+        color-scheme: light;
+      }
+    </style>
+    <script>
+      (() => {
+        try {
+          const theme = localStorage.getItem('qr-theme') === 'dark' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
     <title>QR2PH.ONE — Free QR Code Generator</title>
   </head>
   <body>

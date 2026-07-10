@@ -36,7 +36,7 @@ export default function App() {
   const initialType = typeof window === 'undefined'
     ? 'url'
     : typeFromPath(window.location.pathname) || 'url';
-  const [theme, setThemeState] = useState('light');
+  const [theme, setThemeState] = useState(() => getTheme());
   const [lang, setLangState] = useState(DEFAULT_LANGUAGE);
   const [type, setTypeState] = useState(initialType);
   const [formData, setFormData] = useState({ ...DEFAULT_FORM_DATA });
