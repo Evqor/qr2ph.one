@@ -160,16 +160,27 @@ export default function App() {
           t={t}
         />
         <main className="main">
-          <div className="card content-card">
-            <div className="card-title">{t('contentTitle')}</div>
-            <TypeSelector value={type} onChange={selectType} t={t} />
-            <InputForm
-              type={type}
-              data={currentData}
+          <div className="col-left">
+            <div className="card content-card">
+              <div className="card-title">{t('contentTitle')}</div>
+              <TypeSelector value={type} onChange={selectType} t={t} />
+              <InputForm
+                type={type}
+                data={currentData}
+                t={t}
+                onChange={(next) =>
+                  setFormData((prev) => ({ ...prev, [type]: next }))
+                }
+              />
+            </div>
+
+            <StyleControls style={style} onChange={setStyle} onReset={resetStyle} t={t} />
+            <HistoryPanel
+              history={history}
+              onRestore={handleRestore}
+              onDelete={handleDelete}
+              onClear={handleClear}
               t={t}
-              onChange={(next) =>
-                setFormData((prev) => ({ ...prev, [type]: next }))
-              }
             />
           </div>
 
@@ -192,15 +203,6 @@ export default function App() {
               />
             </div>
           </div>
-
-          <StyleControls style={style} onChange={setStyle} onReset={resetStyle} t={t} />
-          <HistoryPanel
-            history={history}
-            onRestore={handleRestore}
-            onDelete={handleDelete}
-            onClear={handleClear}
-            t={t}
-          />
         </main>
       </div>
     </I18nContext.Provider>
